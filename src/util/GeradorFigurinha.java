@@ -1,3 +1,5 @@
+package util;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -8,7 +10,7 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-public class GeradoraDeFigurinhas {
+public class GeradorFigurinha {
 
 
     public void cria(InputStream inputStream, String nomeArquivo, String texto) throws Exception {
@@ -20,7 +22,7 @@ public class GeradoraDeFigurinhas {
         // cria nova imagem em memória com transparência e com tamanho novo
         int largura = original.getWidth();
         int altura = original.getHeight();
-        int novaAltura = altura + (altura / 5);
+        int novaAltura = altura + 200;
 
         BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
 
@@ -44,7 +46,7 @@ public class GeradoraDeFigurinhas {
         graphics.drawString(texto, posX, posY);
 
         // escrever nova imagem em um arquivo
-        ImageIO.write(novaImagem, "png", new File("saida/" + nomeArquivo));
+        ImageIO.write(novaImagem, "png", new File(nomeArquivo));
 
     }
 
